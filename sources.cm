@@ -1,8 +1,11 @@
 Group is
-	driver.sml
+	(*driver.sml*)
 	errormsg.sml
-	tokens.sig
-	tokens.sml
+	parsetest.sml
+	(*tokens.sig*)
+	(*tokens.sml*)
 	tiger.lex
+	tiger.grm
 	$/basis.cm
 	$/smlnj-lib.cm
+	$/ml-yacc-lib.cm
