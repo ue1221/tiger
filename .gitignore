@@ -4,3 +4,6 @@
 exercise*
 *.tig
 /tiger.lex.sml
+/tiger.grm.desc
+/tiger.grm.sig
+/tiger.grm.sml
