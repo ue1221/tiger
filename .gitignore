@@ -2,3 +2,5 @@
 *.sh
 /.cm
 exercise*
+*.tig
+/tiger.lex.sml
