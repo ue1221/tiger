@@ -1,7 +1,13 @@
 Group is
+	absyn.sml
+	table.sig
+	table.sml
+	symbol.sml
+	parse.sml
+	(*prabsyn.sml*)
 	(*driver.sml*)
 	errormsg.sml
-	parsetest.sml
+	(*parsetest.sml*)
 	(*tokens.sig*)
 	(*tokens.sml*)
 	tiger.lex
