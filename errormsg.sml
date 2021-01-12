@@ -1,14 +1,14 @@
 signature ERRORMSG =
 sig
-	val anyErrors : bool ref
-	val fileName : string ref
-	val lineNum : int ref
-	val linePos : int list ref
-	val sourceStream : TextIO.instream ref
-	val error : int -> string -> unit
+	val anyErrors: bool ref
+	val fileName: string ref
+	val lineNum: int ref
+	val linePos: int list ref
+	val sourceStream: TextIO.instream ref
+	val error: int -> string -> unit
 	exception Error
-	val impossible : string -> 'a   (* raises Error *)
-	val reset : unit -> unit
+	val impossible: string -> 'a   (* raises Error *)
+	val reset: unit -> unit
 end
 
 structure ErrorMsg : ERRORMSG =
