@@ -4,6 +4,12 @@ Group is
 	table.sml
 	symbol.sml
 	parse.sml
+	types.sml
+	semant.sig
+	semant.sml
+	env.sig
+	env.sml
+	translate.sml
 	(*prabsyn.sml*)
 	(*driver.sml*)
 	errormsg.sml

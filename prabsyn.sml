@@ -1,5 +1,6 @@
-structure PrintAbsyn : 
-sig val print : TextIO.outstream * Absyn.exp -> unit end =
+structure PrintAbsyn : sig
+	val print: TextIO.outstream * Absyn.exp -> unit
+end =
 struct
 
 	structure A = Absyn
@@ -51,7 +52,9 @@ struct
 		| exp(A.AssignExp{var = v, exp = e, pos}, d) = (indent d; sayln "AssignExp("; var(v, d + 1); sayln ","; exp(e, d + 1); say ")")
 		| exp(A.IfExp{test, then', else', pos}, d) = (
 			indent d; sayln "IfExp("; exp(test, d + 1); sayln ","; exp(then', d + 1);
-			case else' of NONE => () | SOME e => (sayln ","; exp(e, d + 1));
+			case else' of
+				NONE => ()
+				| SOME e => (sayln ","; exp(e, d + 1));
 			say ")"
 		)
 		| exp(A.WhileExp{test, body, pos}, d) = (indent d; sayln "WhileExp("; exp(test, d + 1); sayln ","; exp(body, d + 1); say ")")
@@ -75,7 +78,9 @@ struct
 			fun f({name, params, result, body, pos}, d) = (
 				indent d; say "("; say (Symbol.name name); say ",[";
 				dolist d field params; sayln "],";
-				case result of NONE => say "NONE" | SOME(s, _) => (say "SOME("; say(Symbol.name s); say ")");
+				case result of
+					NONE => say "NONE"
+					| SOME (s, _) => (say "SOME("; say(Symbol.name s); say ")");
 				sayln ","; exp(body, d + 1); say ")"
 			)
 		in
@@ -84,7 +89,9 @@ struct
 		| dec(A.VarDec{name, escape, typ, init, pos}, d) = (
 			indent d; say "VarDec("; say(Symbol.name name); say ",";
 			say(Bool.toString (!escape)); say ",";
-			case typ of NONE => say "NONE" | SOME(s, p)=> (say "SOME("; say(Symbol.name s); say ")");
+			case typ of
+				NONE => say "NONE"
+				| SOME (s, p) => (say "SOME("; say(Symbol.name s); say ")");
 			sayln ","; exp(init, d + 1); say ")"
 		)
 		| dec(A.TypeDec l, d) = 
